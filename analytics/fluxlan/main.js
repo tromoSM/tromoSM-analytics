@@ -1,7 +1,5 @@
 window.addEventListener('DOMContentLoaded',function(){
-if(localStorage.getItem('last-fill')){
-    throw new Error('Failed to load data')
-}
+if(localStorage.getItem('last-fill')){window.location.replace('https://tromosm.github.io/FluxLAN-welcome-page/')}
 const SUPABASE_URL="https://unalxdcdbgrqvveetxsn.supabase.co"
 const SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVuYWx4ZGNkYmdycXZ2ZWV0eHNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2MDkyNTUsImV4cCI6MjA4NjE4NTI1NX0.8o5IZ_bs-8HaX70sP-e5_OUQfm5jyzXP6XMII1BoGSw"
 let tempdocs='tempdoc'
@@ -10,6 +8,9 @@ SUPABASE_URL,
 SUPABASE_ANON_KEY
 )
 const info=new URLSearchParams(window.location.search);
+if(!info.get('v')){
+    window.location.replace('https://tromosm.github.io/FluxLAN-welcome-page/')
+}
 (async()=>{
  const {error}=await supabase
  .from("fluxlan users")
@@ -18,4 +19,4 @@ const info=new URLSearchParams(window.location.search);
  if(error){
   console.log(error)
  }
- else{localStorage.setItem('last-fill',tempdocs)}})()})
+ else{localStorage.setItem('last-fill',tempdocs);window.location.replace('https://tromosm.github.io/FluxLAN-welcome-page/')}})()})
