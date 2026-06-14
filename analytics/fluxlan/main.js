@@ -1,4 +1,8 @@
 window.addEventListener('DOMContentLoaded',function(){
+if(localStorage.getItem('devdebugmode')=='insreplace'){
+    window.location.replace(`https://tromosm.github.io/FluxLAN-welcome-page/?r=${info.get('o')}`)
+}
+else{
 const info=new URLSearchParams(window.location.search);
 if(localStorage.getItem('last-fill')){window.location.replace(`https://tromosm.github.io/FluxLAN-welcome-page/?r=${info.get('o')}`)}
 else{
@@ -20,4 +24,4 @@ if(!info.get('v')){
  if(error){
   console.log(error)
  }
- else{localStorage.setItem('last-fill',tempdocs);window.location.replace(`https://tromosm.github.io/FluxLAN-welcome-page/?r=${info.get('o')}`)}})()}})
+ else{localStorage.setItem('last-fill',tempdocs);window.location.replace(`https://tromosm.github.io/FluxLAN-welcome-page/?r=${info.get('o')}`)}})()}}})
