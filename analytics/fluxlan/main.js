@@ -1,9 +1,9 @@
 window.addEventListener('DOMContentLoaded',function(){
+const info=new URLSearchParams(window.location.search);
 if(localStorage.getItem('devdebugmode')=='insreplace'){
     window.location.replace(`https://tromosm.github.io/FluxLAN-welcome-page/?r=${info.get('o')}`)
 }
 else{
-const info=new URLSearchParams(window.location.search);
 if(localStorage.getItem('last-fill')){window.location.replace(`https://tromosm.github.io/FluxLAN-welcome-page/?r=${info.get('o')}`)}
 else{
 const SUPABASE_URL="https://unalxdcdbgrqvveetxsn.supabase.co"
