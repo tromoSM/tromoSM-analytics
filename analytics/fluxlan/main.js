@@ -15,7 +15,7 @@ if(!info.get('v')){
  const {error}=await supabase
  .from("fluxlan users")
  .insert([{
- "version":info.get('v'),"release type":info.get('r'),"platform":info.get('p'),"tempio":tempdocs}])
+ "version":info.get('v'),"release type":info.get('r'),"platform":info.get('p'),"tempio":tempdocs,"release_type_web":info.get('t')}])
  if(error){
   console.log(error)
  }
